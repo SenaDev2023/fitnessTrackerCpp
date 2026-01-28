@@ -1,9 +1,11 @@
 #ifndef FITNESSTRACKER_H
 #define FITNESSTRACKER_H
 
+#include <exception> // Added for GCC 15 compatibility
 #include <string>
 #include <vector>
 #include <map>
+#include <iostream>
 
 using namespace std;
 
@@ -17,9 +19,6 @@ void viewRecords(const vector<string>& records);
 void searchRecord(const vector<string>& records);
 void generateWorkouts(int numWorkouts);
 void processUserRequest(int choice, vector<string>& records);
-<<<<<<< HEAD
-void generateReports (const vector<string>& records);
-=======
->>>>>>> c5bc106cf0d196e08eeeda460bc56473f3dc538d
+void generateReports(const vector<string>& records); // Keeping the new feature
 
 #endif // FITNESSTRACKER_H
