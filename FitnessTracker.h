@@ -1,24 +1,26 @@
 #ifndef FITNESSTRACKER_H
 #define FITNESSTRACKER_H
 
-#include <exception> // Added for GCC 15 compatibility
+#include <exception>
 #include <string>
 #include <vector>
 #include <map>
-#include <iostream>
 
-using namespace std;
+// 1. Industry Tip: Avoid 'using namespace std' in headers to prevent 100 years of naming conflicts.
+// Use explicit std:: instead.
 
-// Function declarations
-void displayHeader();
-void displayMenu();
-string loadRecord();
-void addRecord(vector<string>& records);
-void deleteRecord(vector<string>& records);
-void viewRecords(const vector<string>& records);
-void searchRecord(const vector<string>& records);
-void generateWorkouts(int numWorkouts);
-void processUserRequest(int choice, vector<string>& records);
-void generateReports(const vector<string>& records); // Keeping the new feature
+namespace FitnessCore {
 
-#endif // FITNESSTRACKER_H
+    // Logic Functions (Pure data, no cin/cout)
+    void addRecordDirect(std::vector<std::string>& records, const std::string& activity);
+    void deleteRecordByIndex(std::vector<std::string>& records, size_t index);
+    
+    // Original Console Functions (Keep for backward compatibility)
+    void displayHeader();
+    void displayMenu();
+    void addRecord(std::vector<std::string>& records); 
+    void generateWorkouts(int numWorkouts);
+    void generateReports(const std::vector<std::string>& records);
+}
+
+#endif
