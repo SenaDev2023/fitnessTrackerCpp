@@ -1,20 +1,24 @@
+#include <iostream>  // Fixes the 'cin' error
+#include <vector>
+#include <string>
 #include "FitnessTracker.h"
-#include <iostream>
-
-using namespace std;
 
 int main() {
-    vector<string> records;
-    int choice;
+    std::vector<std::string> records;
+    int choice = 0;
 
-    displayHeader();
+    FitnessCore::displayHeader();
 
-    do {
-        displayMenu();
-        cin >> choice;
-        processUserRequest(choice, records);
-        cout << endl;
-    } while (choice != 6);
+    while (choice != 7) {
+        FitnessCore::displayMenu();
+        if (!(std::cin >> choice)) {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            continue;
+        }
+        
+        FitnessCore::processUserRequest(choice, records);
+    }
 
     return 0;
 }

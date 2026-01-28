@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/CPP/fitnessTrackerCpp/build/cmake_install.cmake",
+		"C:/CPP/fitnessTrackerCpp/build/external/glfw/cmake_install.cmake",
+		"C:/CPP/fitnessTrackerCpp/build/external/glfw/src/cmake_install.cmake",
+		"C:/CPP/fitnessTrackerCpp/build/external/glfw/docs/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -5,22 +5,26 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
+#include "FitnessTracker.h"
+
 using namespace std;
+
+namespace FitnessCore {
 
 // Function to display the ASCII header
 void displayHeader() {
     cout << R"(
-     _________
-    / ======= \
-   / __________\
-  | ___________ |
-  | | -       | |
-  | |         | |
-  | |_________| |________________________
-  \=____________/   chris sena     
-  / """"""""""" \                       /
- / ::::::::::::: \                  =D-'
-(_________________)
+         _________
+        / ======= \
+       / __________\
+      | ___________ |
+      | | -       | |
+      | |         | |
+      | |_________| |________________________
+      \=____________/   chris sena     
+      / """"""""""" \                       /
+     / ::::::::::::: \                  =D-'
+    (_________________)
     )" << endl;
     cout << "Welcome to the Fitness Tracker!" << endl;
     cout << "Track your activities and achieve your goals!" << endl;
@@ -65,7 +69,7 @@ void deleteRecord(vector<string>& records) {
     cout << "Enter the record number to delete (1 to " << records.size() << "): ";
     int index;
     cin >> index;
-    if (index < 1 || index > records.size()) {
+    if (index < 1 || index > (int)records.size()) {
         cout << "Invalid record number!" << endl;
     } else {
         records.erase(records.begin() + index - 1);
@@ -165,7 +169,7 @@ void processUserRequest(int choice, vector<string>& records) {
         case 4:
             searchRecord(records);
             break;
-        case 5:
+        case 5: {
             int numWorkouts;
             cout << "Enter the number of workouts to generate: ";
             cin >> numWorkouts;
@@ -175,6 +179,7 @@ void processUserRequest(int choice, vector<string>& records) {
                 cout << "Please enter a valid number greater than 0." << endl;
             }
             break;
+        }
         case 6:
             generateReports(records);
             break;
@@ -185,3 +190,5 @@ void processUserRequest(int choice, vector<string>& records) {
             cout << "Invalid choice. Please select a number between 1 and 7." << endl;
     }
 }
+
+} // namespace FitnessCore

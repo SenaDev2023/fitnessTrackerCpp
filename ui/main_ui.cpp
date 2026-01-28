@@ -1,10 +1,11 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-#include "../FitnessTracker.h" // Link to your existing logic
-#include <GLFW/glfw3.h>
+#include "../FitnessTracker.h" 
+#include <GLFW/glfw3.h> // Fixed the missing >
 #include <vector>
 #include <string>
+#include <cstring> // Added for strlen
 
 int main() {
     // 1. Setup GLFW (Window Management)
@@ -52,7 +53,7 @@ int main() {
         ImGui::SameLine();
         if (ImGui::Button("Generate Random Workout")) {
             // This calls your existing logic from FitnessTracker.cpp!
-            generateWorkouts(1); 
+           FitnessCore::generateWorkouts(1); 
         }
 
         // Display Records
